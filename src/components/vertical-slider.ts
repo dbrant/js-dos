@@ -73,6 +73,8 @@ export function VerticalSlider(props: VerticalSliderProps) {
         window.addEventListener("pointermove", onMove);
         window.addEventListener("pointerup", onEnd);
         window.addEventListener("pointercancel", onEnd);
+        el.addEventListener("pointerup", onEnd);
+        el.addEventListener("pointercancel", onEnd);
         props.registerListner(setValue);
 
         return () => {
@@ -81,6 +83,8 @@ export function VerticalSlider(props: VerticalSliderProps) {
             window.removeEventListener("pointermove", onMove);
             window.removeEventListener("pointerup", onEnd);
             window.removeEventListener("pointercancel", onEnd);
+            el.removeEventListener("pointerup", onEnd);
+            el.removeEventListener("pointercancel", onEnd);
         };
     }, [sliderRef]);
 

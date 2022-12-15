@@ -74,6 +74,8 @@ export function HorizontalSlider(props: HorizontalSliderProps) {
         window.addEventListener("pointermove", onMove);
         window.addEventListener("pointerup", onEnd);
         window.addEventListener("pointercancel", onEnd);
+        el.addEventListener("pointerup", onEnd);
+        el.addEventListener("pointercancel", onEnd);
         props.registerListner(setValue);
 
         return () => {
@@ -82,6 +84,8 @@ export function HorizontalSlider(props: HorizontalSliderProps) {
             window.removeEventListener("pointermove", onMove);
             window.removeEventListener("pointerup", onEnd);
             window.removeEventListener("pointercancel", onEnd);
+            el.removeEventListener("pointerup", onEnd);
+            el.removeEventListener("pointercancel", onEnd);
         };
     }, [sliderRef]);
 
