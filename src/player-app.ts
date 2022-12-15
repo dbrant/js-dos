@@ -171,7 +171,7 @@ export function PlayerApp(playerProps: {
             const showTips = storage.getItem(storageKeys.uiTips) !== "false";
             const showTipsAutolok = autolock && storage.getItem(storageKeys.autolockTips) !== "false";
             if (showTips || showTipsAutolok) {
-                props.setShowTips(true);
+                //props.setShowTips(true);
             }
             setAutolock(autolock);
         });
@@ -302,8 +302,7 @@ export function PlayerApp(playerProps: {
 
     if (props.actionBar === false) {
         return html`<div>
-            <${ActionSaveOrExit} ...${props} class="absolute left-0 top-0 rounded-br-md z-50 w-8 h-8" />
-            <${ActionHide} ...${props} class="absolute left-0 opacity-80 top-1/2 z-50 -mt-6" />
+            <${ActionHide} ...${props} class="absolute left-0 top-0 opacity-80 z-50" />
         </div>`;
     }
 
